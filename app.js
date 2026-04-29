@@ -1,4 +1,8 @@
-// app.js
+// // app.js
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("/sw.js");
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js")
+      .then(r => console.log("SW registered", r.scope))
+      .catch(e => console.error("SW failed", e));
+  });
 }
