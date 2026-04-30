@@ -1,0 +1,24 @@
+title: "morganism"
+description: "DevOps, platform engineering, Linux, and whatever else needs saying."
+url: "https://morganism.github.io"
+baseurl: "/blog"
+
+author:
+  name: "Morgan Sziraki"
+  github: "morganism"
+
+markdown: kramdown
+highlighter: rouge
+permalink: /:year/:month/:day/:title/
+
+exclude:
+  - README.md
+  - SETUP_SITE.md
+  - fix_blog.sh
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag

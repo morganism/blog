@@ -1,8 +1,10 @@
 ---
-title: "My First Post"
-layout: default
+title: "Hello World"
+layout: post
+date: 2026-04-29
+tags: [meta]
 ---
 
-## Hello world 👋
+First post. The blog lives.
 
-This is a **Markdown post** published via GitHub Pages.
+More to follow — DevOps, platform engineering, Linux, Ruby, and whatever else I feel like shouting into the void.

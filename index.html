@@ -1,19 +1,52 @@
-<link rel="manifest" href="./manifest.json">
-<script src="./app.js"></script>
-<meta name="theme-color" content="#0d6efd">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+---
+layout: default
+title: "morganism"
+---
 
-<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<div class="row">
+  <div class="col-lg-8">
 
+    <h1 class="mb-4">Posts</h1>
 
-<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
-<script>
-  window.OneSignal = window.OneSignal || [];
+    {% if site.posts.size == 0 %}
+      <p class="text-muted">No posts yet. Drop a markdown file in <code>_posts/</code>.</p>
+    {% else %}
+      {% for post in site.posts %}
+      <article class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <h2 class="card-title h5">
+            <a href="{{ post.url | relative_url }}" class="text-decoration-none">{{ post.title }}</a>
+          </h2>
+          <p class="text-muted small mb-2">
+            <time datetime="{{ post.date | date_to_xmlschema }}">
+              {{ post.date | date: "%d %B %Y" }}
+            </time>
+            {% if post.tags.size > 0 %}
+              &nbsp;·&nbsp;
+              {% for tag in post.tags %}
+                <span class="badge bg-secondary">{{ tag }}</span>
+              {% endfor %}
+            {% endif %}
+          </p>
+          {% if post.excerpt %}
+            <p class="card-text">{{ post.excerpt | strip_html | truncatewords: 40 }}</p>
+          {% endif %}
+          <a href="{{ post.url | relative_url }}" class="btn btn-sm btn-outline-primary">Read →</a>
+        </div>
+      </article>
+      {% endfor %}
+    {% endif %}
 
-  OneSignal.push(function () {
-    OneSignal.init({
-      appId: "8bc99f24-3471-4468-b871-cceedcf466b1"
-    });
-  });
-</script>
+  </div>
 
+  <div class="col-lg-4">
+    <div class="card shadow-sm mb-4">
+      <div class="card-body">
+        <h5 class="card-title">About</h5>
+        <p class="card-text small">Platform engineering, Linux, Ruby, and 35 years of information systems. Opinions are my own and probably correct.</p>
+        <a href="https://github.com/morganism" class="btn btn-sm btn-dark">GitHub</a>
+      </div>
+    </div>
+  </div>
+
+</div>
