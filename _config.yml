@@ -1,7 +1,7 @@
 title: "morganism"
 description: "DevOps, platform engineering, Linux, and whatever else needs saying."
 url: "https://morganism.github.io"
-baseurl: "/blog"
+baseurl: ""
 
 author:
   name: "Morgan Sziraki"
